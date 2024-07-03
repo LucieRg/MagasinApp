@@ -4,6 +4,7 @@ import org.example.entity.*;
 import org.example.service.InventaireItemService;
 import org.example.util.CategorieType;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -204,6 +205,7 @@ public class InventaireUI {
         scanner.nextLine();
 
         articleARestocker.setQuantite(articleARestocker.getQuantite() + quantiteAjoutee);
+        articleARestocker.setRestockDate(new Date());
 
         boolean success = inventaireItemService.updateItem(articleARestocker);
         if (success) {

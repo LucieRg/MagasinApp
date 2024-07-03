@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 public class InventaireITemRepository extends GeneralRepository<InventaireItem>{
-
+    private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
 
 

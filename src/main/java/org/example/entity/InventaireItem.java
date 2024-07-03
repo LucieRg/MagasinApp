@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -23,7 +24,7 @@ public class InventaireItem {
     protected String description;
     protected double prix;
     protected int quantite;
-    protected String restockDate;
+    protected Date restockDate;
 
 
     @ManyToOne
