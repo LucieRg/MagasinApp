@@ -85,4 +85,3 @@ public class GeneralRepository <T> {
         return list;
     }
 }
-

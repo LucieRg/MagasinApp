@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class VenteRepository {
+public class VenteRepository extends GeneralRepository<Vente> {
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     public boolean saveVente(Vente vente, Client client, StatusType statusType, List<InventaireItem> items) {
@@ -36,22 +36,7 @@ public class VenteRepository {
 
 
     }
-    public boolean deleteVente (Vente vente) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.delete(vente);
-            return true;
-        } catch (Exception e) {
-            if (transaction!= null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-            return false;
-        } finally {
-            session.close();
-        }
-    }
+
 
     public List<Vente> findByStatus(StatusType statusType) {
         Session session = sessionFactory.openSession();
@@ -68,16 +53,5 @@ public class VenteRepository {
         return ventes;
     }
 
-    public Vente findById(Long id) {
-        Session session = sessionFactory.openSession();
-        Vente vente = null;
-        try {
-            vente = session.get(Vente.class, id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return vente;
-    }
+
 }

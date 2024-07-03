@@ -20,8 +20,8 @@ public class Vente {
     @JoinColumn (name = "vente_id")
     protected Long id;
     private LocalDate venteDate;
-   @Enumerated(EnumType.STRING)
-   private StatusType statusType;
+    @Enumerated(EnumType.STRING)
+    private StatusType statusType;
 
 
     @ManyToOne

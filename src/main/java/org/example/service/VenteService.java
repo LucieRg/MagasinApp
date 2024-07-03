@@ -15,9 +15,12 @@ public class VenteService {
         return venteRepository.saveVente(vente, client, statusType, items);
 
     }
+    public static boolean updateVente(Vente vente) {
+        return venteRepository.update(vente);
+    }
 
     public static boolean deleteVente(Vente vente) {
-        return venteRepository.deleteVente(vente);
+        return venteRepository.delete(vente);
     }
 
     public List<Vente> findByStatus(StatusType statusType) {
@@ -25,6 +28,6 @@ public class VenteService {
     }
 
     public Vente findById(Long id) {
-        return venteRepository.findById(id);
+        return venteRepository.findById(Vente.class,id);
     }
 }

@@ -24,6 +24,7 @@ public class InventaireItemService {
     }
 
     public InventaireItem findItem(Long id) {
+
         return inventaireRepository.findById(InventaireItem.class, id);
     }
 

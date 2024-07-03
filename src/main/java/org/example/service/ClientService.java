@@ -21,7 +21,7 @@ public class ClientService {
     }
 
     public Client findClientById(long id) {
-        return clientRepository.findById(Client.class, id);
+        return clientRepository.findById(Client.class,id);
     }
 
     public static List<Client> findAllClient() {
