@@ -65,6 +65,8 @@ public class InventaireUI {
         String description = scanner.nextLine();
         System.out.print("Prix : ");
         double prix = scanner.nextDouble();
+        System.out.println("Quantite : ");
+        int quantite = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("Choisir le type d'article :");
@@ -106,7 +108,8 @@ public class InventaireUI {
 
         nouvelArticle.setDescription(description);
         nouvelArticle.setPrix(prix);
-        nouvelArticle.setQuantite(0);
+        nouvelArticle.setQuantite(quantite);
+        nouvelArticle.setRestockDate(new Date());
 
         if (inventaireItemService.addItem(nouvelArticle)) {
             System.out.println("Article ajouté avec succès !");
